@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Calendar, Shield, Zap, Smile, Award } from "lucide-react";
-import dentalHero from "@/assets/dental-hero.jpg";
 
 const Home = () => {
   const handleBookNow = () => {
@@ -65,11 +64,15 @@ const Home = () => {
               </div>
             </div>
             <div className="relative">
-              <img
-                src={dentalHero}
-                alt="Modern dental clinic interior"
-                className="rounded-2xl shadow-2xl w-full h-auto"
-              />
+              <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl shadow-2xl w-full h-96 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="bg-primary/20 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-4">
+                    <Smile className="h-12 w-12 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">Modern Dental Care</h3>
+                  <p className="text-muted-foreground">Experience excellence in dentistry</p>
+                </div>
+              </div>
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg border">
                 <div className="flex items-center space-x-2">
                   <div className="flex">

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const [location] = useLocation();
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => location === path;
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -23,11 +23,10 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img 
-              src="/lovable-uploads/f778d130-63de-484e-855d-3599566c4a60.png" 
-              alt="Dr. Neha's Dental Care Logo" 
-              className="h-12 w-auto"
-            />
+            <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
+              DN
+            </div>
+            <span className="text-lg font-bold text-foreground">Dr. Neha's Dental Care</span>
           </Link>
 
           {/* Desktop Navigation */}
