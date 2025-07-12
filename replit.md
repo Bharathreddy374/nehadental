@@ -42,8 +42,9 @@ Preferred communication style: Simple, everyday language.
 - **UI Library**: Complete set of accessible components (buttons, cards, forms, etc.)
 
 ### Backend Structure
-- **Routes**: RESTful API endpoints (currently minimal setup)
-- **Storage**: Memory-based storage with interface for easy database migration
+- **Routes**: RESTful API endpoints for patients, appointments, and treatments
+- **Storage**: PostgreSQL database with Drizzle ORM and comprehensive dental clinic schema
+- **Database**: Neon serverless PostgreSQL with tables for patients, appointments, and treatments
 - **Middleware**: Request logging, error handling, and JSON parsing
 - **Static Serving**: Vite integration for development, static files for production
 
@@ -96,10 +97,12 @@ Preferred communication style: Simple, everyday language.
 - Environment variable configuration for database
 
 ### Database Configuration
-- Drizzle migrations in `./migrations` directory
-- Schema definition in `./shared/schema.ts`
+- PostgreSQL database with Neon serverless hosting
+- Schema definition in `./shared/schema.ts` with comprehensive dental clinic tables
+- Database tables: users, patients, appointments, treatments with proper relations
+- Drizzle ORM with type-safe database operations
+- RESTful API endpoints for all major entities
 - PostgreSQL connection via `DATABASE_URL` environment variable
-- Session storage using `connect-pg-simple`
 
 ### Key Design Decisions
 
