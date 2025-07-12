@@ -10,6 +10,7 @@ import Services from "./pages/Services";
 import About from "./pages/About";
 import BookNow from "./pages/BookNow";
 import Contact from "./pages/Contact";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
               <Route path="/about" component={About} />
               <Route path="/book" component={BookNow} />
               <Route path="/contact" component={Contact} />
+              <Route path="/admin" component={Admin} />
               <Route component={NotFound} />
             </Switch>
           </Layout>
