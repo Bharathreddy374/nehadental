@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
+import logoPath from "@assets/Final dental logo_1753720672688.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,11 +24,13 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
-              DN
-            </div>
-            <span className="text-lg font-bold text-foreground">Dr. Neha's Dental Care</span>
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src={logoPath} 
+              alt="Dr. Neha's Dental Care" 
+              className="h-12 w-auto object-contain logo-enhanced logo-no-bg"
+            />
+            <span className="text-lg font-bold text-foreground hidden sm:block">Dr. Neha's Dental Care</span>
           </Link>
 
           {/* Desktop Navigation */}

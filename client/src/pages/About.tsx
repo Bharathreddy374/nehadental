@@ -16,6 +16,7 @@ import {
   Smile,
   Sparkles
 } from "lucide-react";
+import logoPath from "@assets/Final dental logo_1753720672688.png";
 
 const About = () => {
   const achievements = [
@@ -142,8 +143,12 @@ const About = () => {
           <div className="relative">
             <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 h-full flex items-center justify-center">
               <div className="text-center">
-                <div className="w-32 h-32 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-4xl font-bold text-primary">DN</span>
+                <div className="mb-6">
+                  <img 
+                    src={logoPath} 
+                    alt="Dr. Neha's Dental Care" 
+                    className="h-24 w-auto object-contain mx-auto logo-enhanced logo-no-bg"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold text-foreground mb-2">Dr. Neha Prithviraj Thorat</h3>
                 <p className="text-primary font-semibold mb-4">BDS - Conservative Dentistry</p>

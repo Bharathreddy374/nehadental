@@ -109,3 +109,22 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  /* Logo styling for transparent background */
+  .logo-transparent {
+    mix-blend-mode: multiply;
+    background: transparent;
+  }
+  
+  /* Enhance logo visibility */
+  .logo-enhanced {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)) contrast(1.1) brightness(1.05);
+  }
+  
+  /* Remove white background from PNG logos */
+  .logo-no-bg {
+    background: transparent;
+    mix-blend-mode: darken;
+  }
+}
