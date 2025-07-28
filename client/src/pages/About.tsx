@@ -10,7 +10,11 @@ import {
   Shield,
   Star,
   Calendar,
-  CheckCircle
+  CheckCircle,
+  Stethoscope,
+  Baby,
+  Smile,
+  Sparkles
 } from "lucide-react";
 
 const About = () => {
@@ -62,6 +66,37 @@ const About = () => {
     "Cosmetic smile makeovers",
     "Emergency dental care",
     "Pediatric dentistry"
+  ];
+
+  const expertiseAreas = [
+    {
+      icon: Stethoscope,
+      title: "General Dentistry",
+      description: "Comprehensive oral health care and preventive treatments",
+      highlights: ["Routine cleanings", "Dental fillings", "Oral health education"],
+      color: "bg-blue-500"
+    },
+    {
+      icon: Shield,
+      title: "Endodontics",
+      description: "Root canal therapy and pulp treatment specialist",
+      highlights: ["Pain-free procedures", "Single sitting treatment", "Advanced techniques"],
+      color: "bg-red-500"
+    },
+    {
+      icon: Sparkles,
+      title: "Cosmetic Dentistry",
+      description: "Smile enhancement and aesthetic treatments",
+      highlights: ["Teeth whitening", "Veneers", "Smile makeovers"],
+      color: "bg-pink-500"
+    },
+    {
+      icon: Baby,
+      title: "Pediatric Care",
+      description: "Gentle dental care for children and adolescents",
+      highlights: ["Child-friendly approach", "Preventive care", "Behavior management"],
+      color: "bg-orange-500"
+    }
   ];
 
   return (
@@ -198,6 +233,38 @@ const About = () => {
                 <p className="text-sm text-muted-foreground">Based on 150+ reviews</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Expertise Areas */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-foreground text-center mb-12">
+            Areas of Expertise
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {expertiseAreas.map((area, index) => (
+              <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/30">
+                <CardContent className="p-6 text-center">
+                  <div className={`w-12 h-12 rounded-lg ${area.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
+                    <area.icon className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">
+                    {area.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {area.description}
+                  </p>
+                  <div className="space-y-1">
+                    {area.highlights.map((highlight, idx) => (
+                      <div key={idx} className="flex items-center text-xs">
+                        <CheckCircle className="h-3 w-3 text-primary mr-1 flex-shrink-0" />
+                        <span>{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
 

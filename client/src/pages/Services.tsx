@@ -10,7 +10,14 @@ import {
   Heart, 
   Users, 
   CheckCircle,
-  Calendar
+  Calendar,
+  Stethoscope,
+  Baby,
+  Scissors,
+  Crown,
+  Activity,
+  Sparkles,
+  Building
 } from "lucide-react";
 
 const Services = () => {
@@ -84,6 +91,73 @@ const Services = () => {
     "Emergency Dental Care",
     "Oral Cancer Screening",
     "TMJ Treatment"
+  ];
+
+  const dentalBranches = [
+    {
+      icon: Stethoscope,
+      title: "General Dentistry",
+      description: "Primary care provider for oral health. Focuses on prevention, diagnosis, and treatment of common dental issues.",
+      services: ["Cleanings", "Fillings", "Check-ups", "Oral hygiene education"],
+      specialNote: "Comprehensive primary dental care for all ages",
+      color: "bg-blue-500"
+    },
+    {
+      icon: Baby,
+      title: "Pediatric Dentistry",
+      description: "Specializes in children's oral health from infancy through adolescence. Experts in managing dental development and child behavior.",
+      services: ["Preventive care", "Fluoride treatments", "Sealants", "Early orthodontics"],
+      specialNote: "Creating positive dental experiences for children",
+      color: "bg-pink-500"
+    },
+    {
+      icon: Smile,
+      title: "Orthodontics",
+      description: "Deals with the correction of misaligned teeth and jaws using braces, clear aligners, and retainers.",
+      services: ["Braces", "Clear aligners (Invisalign)", "Retainers", "Bite correction"],
+      specialNote: "Improve bite function, facial aesthetics, and long-term oral health",
+      color: "bg-purple-500"
+    },
+    {
+      icon: Activity,
+      title: "Periodontics",
+      description: "Specializes in the prevention, diagnosis, and treatment of gum disease. Also focuses on dental implants and oral inflammation.",
+      services: ["Scaling", "Root planing", "Gum grafts", "Implant placement"],
+      specialNote: "Maintaining healthy gums and supporting structures",
+      color: "bg-green-500"
+    },
+    {
+      icon: Shield,
+      title: "Endodontics",
+      description: "Focuses on the health of dental pulp and root canal therapy. Treats tooth pain and infection from deep decay or trauma.",
+      services: ["Root canal treatment", "Pulp therapy", "Endodontic surgery"],
+      specialNote: "Saving natural teeth through specialized pulp treatment",
+      color: "bg-red-500"
+    },
+    {
+      icon: Crown,
+      title: "Prosthodontics",
+      description: "Specializes in the restoration and replacement of missing teeth using crowns, bridges, dentures, and implants.",
+      services: ["Crowns", "Bridges", "Dentures", "Implants"],
+      specialNote: "Restore oral function, aesthetics, and comfort",
+      color: "bg-amber-500"
+    },
+    {
+      icon: Scissors,
+      title: "Oral & Maxillofacial Surgery",
+      description: "Deals with surgical treatment of diseases, injuries, and defects of the mouth, jaws, and face.",
+      services: ["Tooth extractions", "Wisdom teeth removal", "Jaw surgery", "Facial trauma repair"],
+      specialNote: "Complex surgical procedures for oral and facial health",
+      color: "bg-orange-500"
+    },
+    {
+      icon: Sparkles,
+      title: "Cosmetic Dentistry",
+      description: "Focused on improving the appearance of teeth and smile through various aesthetic treatments.",
+      services: ["Teeth whitening", "Veneers", "Bonding", "Smile makeovers"],
+      specialNote: "Enhancing smile aesthetics and patient confidence",
+      color: "bg-yellow-500"
+    }
   ];
 
   return (
@@ -163,6 +237,57 @@ const Services = () => {
                 <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
                 <span className="font-medium">{service}</span>
               </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Branches of Dentistry */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              🦷 Branches of Dentistry
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Explore our comprehensive dental specialties and understand how each branch focuses on specific aspects of oral health care.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {dentalBranches.map((branch, index) => (
+              <Card key={index} className="h-full hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className={`p-2 rounded-lg ${branch.color} text-white mr-3`}>
+                      <branch.icon className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-lg font-bold">{branch.title}</h3>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    {branch.description}
+                  </p>
+                  
+                  <div className="space-y-2 mb-4">
+                    <h4 className="font-semibold text-sm text-primary">Key Services:</h4>
+                    <div className="space-y-1">
+                      {branch.services.map((service, idx) => (
+                        <div key={idx} className="flex items-start text-xs">
+                          <CheckCircle className="h-3 w-3 text-primary mr-1 mt-0.5 flex-shrink-0" />
+                          <span>{service}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {branch.specialNote && (
+                    <div className="bg-primary/10 rounded-lg p-3 mt-4">
+                      <p className="text-xs text-primary font-medium">
+                        <strong>Goal:</strong> {branch.specialNote}
+                      </p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>

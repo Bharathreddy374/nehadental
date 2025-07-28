@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Calendar, Shield, Zap, Smile, Award } from "lucide-react";
+import { Star, Calendar, Shield, Zap, Smile, Award, Stethoscope, Baby, Sparkles } from "lucide-react";
 
 const Home = () => {
   const handleBookNow = () => {
@@ -28,6 +28,37 @@ const Home = () => {
       icon: Zap,
       title: "Whitening",
       description: "Professional teeth whitening for a brighter smile"
+    }
+  ];
+
+  const specialtyHighlights = [
+    {
+      icon: Stethoscope,
+      title: "General Dentistry",
+      description: "Primary dental care & prevention",
+      focus: "Complete oral health maintenance",
+      color: "bg-blue-500"
+    },
+    {
+      icon: Shield,
+      title: "Endodontics",
+      description: "Root canal therapy specialist",
+      focus: "Saving natural teeth",
+      color: "bg-red-500"
+    },
+    {
+      icon: Sparkles,
+      title: "Cosmetic Dentistry",
+      description: "Smile enhancement & aesthetics",
+      focus: "Beautiful confident smiles",
+      color: "bg-pink-500"
+    },
+    {
+      icon: Baby,
+      title: "Pediatric Care",
+      description: "Gentle care for children",
+      focus: "Positive dental experiences",
+      color: "bg-orange-500"
     }
   ];
 
@@ -160,6 +191,54 @@ const Home = () => {
                 Based on 150+ Google Reviews
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Dental Specialties Awareness */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              🦷 Comprehensive Dental Care
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Dr. Neha specializes in multiple branches of dentistry to provide you with complete oral health care under one roof.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {specialtyHighlights.map((specialty, index) => (
+              <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/30">
+                <CardContent className="p-6 text-center">
+                  <div className={`w-12 h-12 rounded-lg ${specialty.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
+                    <specialty.icon className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">
+                    {specialty.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    {specialty.description}
+                  </p>
+                  <p className="text-xs text-primary font-medium">
+                    {specialty.focus}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground mb-6">
+              From routine cleanings to complex procedures, we cover all aspects of dental health
+            </p>
+            <Button 
+              variant="outline" 
+              className="border-primary text-primary hover:bg-primary/10"
+              onClick={() => window.location.href = '/services'}
+            >
+              Explore All Services
+            </Button>
           </div>
         </div>
       </section>

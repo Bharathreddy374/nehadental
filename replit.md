@@ -115,3 +115,21 @@ Preferred communication style: Simple, everyday language.
 7. **Modern Tooling**: Vite for fast development, esbuild for production builds
 
 The application is designed to be easily extensible, with clear separation of concerns and modern development practices throughout.
+
+### Recent Changes
+
+#### January 28, 2025 - Dental Specialties Integration
+✓ Added comprehensive "Branches of Dentistry" section to Services page with 8 specialty areas
+✓ Enhanced About page with Dr. Neha's expertise areas and professional specializations
+✓ Updated Home page with dental specialty awareness section
+✓ Integrated doctor's key points on dental branches including:
+  - General Dentistry (primary care and prevention)
+  - Pediatric Dentistry (children's oral health)
+  - Orthodontics (teeth and jaw alignment)
+  - Periodontics (gum disease treatment)
+  - Endodontics (root canal therapy)
+  - Prosthodontics (tooth restoration and replacement)
+  - Oral & Maxillofacial Surgery (surgical procedures)
+  - Cosmetic Dentistry (aesthetic treatments)
+✓ Added detailed service descriptions, goals, and specialization focus for each branch
+✓ Enhanced user education about different dental specialties and their purposes
