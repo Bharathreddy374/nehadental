@@ -52,7 +52,7 @@ const BookNow = () => {
 
         {/* Booking Options */}
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          {/* Calendly Booking */}
+          {/* Picktime Booking */}
           <Card className="group hover:shadow-lg transition-all duration-300">
             <CardContent className="p-8">
               <div className="text-center mb-6">
@@ -63,7 +63,7 @@ const BookNow = () => {
                   Online Booking
                 </h2>
                 <p className="text-muted-foreground">
-                  Schedule instantly with our online calendar
+                  Schedule instantly with our free online booking system
                 </p>
               </div>
 
@@ -78,18 +78,27 @@ const BookNow = () => {
                 ))}
               </div>
 
-              {/* Calendly Embed Placeholder */}
+              {/* Picktime Booking Widget */}
               <div className="bg-primary/5 rounded-lg p-8 text-center mb-6 border-2 border-dashed border-primary/20">
                 <Calendar className="h-12 w-12 text-primary mx-auto mb-4" />
                 <p className="text-muted-foreground mb-4">
-                  Calendly booking widget will appear here
+                  Free appointment scheduling with Picktime
                 </p>
                 <Button 
                   className="bg-primary hover:bg-primary/90"
-                  onClick={() => window.open("https://calendly.com/nehadental", "_blank")}
+                  onClick={() => window.open("https://www.picktime.com/", "_blank")}
                 >
-                  Open Booking Calendar
+                  Set Up Free Booking System
                 </Button>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Powered by Picktime - Completely free appointment scheduling
+                </p>
+                <div className="mt-4 text-xs text-muted-foreground space-y-1">
+                  <p>✓ No monthly fees or hidden costs</p>
+                  <p>✓ Unlimited appointments and patients</p>
+                  <p>✓ Automated reminders and confirmations</p>
+                  <p>✓ Easy integration with your website</p>
+                </div>
               </div>
 
               <div className="flex items-center justify-center text-sm text-muted-foreground">

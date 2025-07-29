@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import type { Patient } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -27,7 +28,7 @@ const AddAppointmentForm = ({ onClose, onSuccess }: AddAppointmentFormProps) => 
     notes: "",
   });
 
-  const { data: patients = [] } = useQuery({
+  const { data: patients = [] } = useQuery<Patient[]>({
     queryKey: ["/api/patients"],
   });
 

@@ -53,20 +53,77 @@ const Admin = () => {
   const [showAddPatient, setShowAddPatient] = useState(false);
   const [showAddAppointment, setShowAddAppointment] = useState(false);
 
-  // Fetch data from API
-  const { data: patients = [], isLoading: patientsLoading } = useQuery<Patient[]>({
+  // Mock data for demonstration (will connect to real backend when database is ready)
+  const mockPatients: Patient[] = [
+    {
+      id: 1,
+      name: "John Doe",
+      email: "john.doe@email.com",
+      phone: "+91 9876543210",
+      dateOfBirth: new Date("1990-05-15"),
+      address: "123 Main St, Mumbai",
+      medicalHistory: "No known allergies",
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      email: "jane.smith@email.com",
+      phone: "+91 8765432109",
+      dateOfBirth: new Date("1985-10-22"),
+      address: "456 Oak Ave, Delhi",
+      medicalHistory: "Allergic to penicillin",
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
+  ];
+
+  const mockAppointments: Appointment[] = [
+    {
+      id: 1,
+      patientId: 1,
+      appointmentDate: new Date(),
+      appointmentTime: "10:00",
+      service: "Consultation",
+      status: "scheduled",
+      notes: "Regular checkup",
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      id: 2,
+      patientId: 2,
+      appointmentDate: new Date(Date.now() + 86400000), // Tomorrow
+      appointmentTime: "14:30",
+      service: "Cleaning",
+      status: "scheduled",
+      notes: "Annual cleaning",
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
+  ];
+
+  // Fetch data from API (fallback to mock data when database is not ready)
+  const { data: fetchedPatients, isLoading: patientsLoading } = useQuery<Patient[]>({
     queryKey: ["/api/patients"],
+    retry: false,
   });
 
-  const { data: appointments = [], isLoading: appointmentsLoading } = useQuery<Appointment[]>({
+  const { data: fetchedAppointments, isLoading: appointmentsLoading } = useQuery<Appointment[]>({
     queryKey: ["/api/appointments"],
+    retry: false,
   });
+
+  // Use real data if available, otherwise use mock data
+  const patients = fetchedPatients || mockPatients;
+  const appointments = fetchedAppointments || mockAppointments;
 
   // Dashboard stats
   const totalPatients = patients.length;
   const todayAppointments = appointments.filter(apt => {
     const today = new Date().toISOString().split('T')[0];
-    return apt.appointmentDate?.includes(today);
+    return apt.appointmentDate && new Date(apt.appointmentDate).toISOString().split('T')[0] === today;
   }).length;
   const pendingAppointments = appointments.filter(apt => apt.status === 'scheduled').length;
 
