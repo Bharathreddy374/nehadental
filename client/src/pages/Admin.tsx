@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import type { Patient, Appointment } from "@shared/schema";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -53,11 +54,11 @@ const Admin = () => {
   const [showAddAppointment, setShowAddAppointment] = useState(false);
 
   // Fetch data from API
-  const { data: patients = [], isLoading: patientsLoading } = useQuery({
+  const { data: patients = [], isLoading: patientsLoading } = useQuery<Patient[]>({
     queryKey: ["/api/patients"],
   });
 
-  const { data: appointments = [], isLoading: appointmentsLoading } = useQuery({
+  const { data: appointments = [], isLoading: appointmentsLoading } = useQuery<Appointment[]>({
     queryKey: ["/api/appointments"],
   });
 
