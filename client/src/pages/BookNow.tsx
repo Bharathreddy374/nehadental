@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import PicktimeWidget from "@/components/PicktimeWidget";
 import { 
   Calendar, 
   MessageCircle, 
@@ -79,27 +80,7 @@ const BookNow = () => {
               </div>
 
               {/* Picktime Booking Widget */}
-              <div className="bg-primary/5 rounded-lg p-8 text-center mb-6 border-2 border-dashed border-primary/20">
-                <Calendar className="h-12 w-12 text-primary mx-auto mb-4" />
-                <p className="text-muted-foreground mb-4">
-                  Free appointment scheduling with Picktime
-                </p>
-                <Button 
-                  className="bg-primary hover:bg-primary/90"
-                  onClick={() => window.open("https://www.picktime.com/", "_blank")}
-                >
-                  Set Up Free Booking System
-                </Button>
-                <p className="text-xs text-muted-foreground mt-2">
-                  Powered by Picktime - Completely free appointment scheduling
-                </p>
-                <div className="mt-4 text-xs text-muted-foreground space-y-1">
-                  <p>✓ No monthly fees or hidden costs</p>
-                  <p>✓ Unlimited appointments and patients</p>
-                  <p>✓ Automated reminders and confirmations</p>
-                  <p>✓ Easy integration with your website</p>
-                </div>
-              </div>
+              <PicktimeWidget className="mb-6" />
 
               <div className="flex items-center justify-center text-sm text-muted-foreground">
                 <CheckCircle className="h-4 w-4 text-green-500 mr-2" />

@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import FloatingBookingButton from "./FloatingBookingButton";
 import WhatsAppButton from "./WhatsAppButton";
 
 interface LayoutProps {
@@ -15,6 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
       </main>
       <Footer />
       <WhatsAppButton />
+      <FloatingBookingButton />
     </div>
   );
 };

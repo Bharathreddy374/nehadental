@@ -46,6 +46,7 @@ import {
 } from "@/components/ui/dialog";
 import AddPatientForm from "@/components/AddPatientForm";
 import AddAppointmentForm from "@/components/AddAppointmentForm";
+import PicktimeSetup from "@/components/PicktimeSetup";
 
 const Admin = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -158,11 +159,12 @@ const Admin = () => {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="grid w-full grid-cols-4">
+          <TabsList className="grid w-full grid-cols-5">
             <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
             <TabsTrigger value="patients">Patients</TabsTrigger>
             <TabsTrigger value="appointments">Appointments</TabsTrigger>
             <TabsTrigger value="treatments">Treatments</TabsTrigger>
+            <TabsTrigger value="booking">Booking Setup</TabsTrigger>
           </TabsList>
 
           {/* Dashboard Tab */}
@@ -550,6 +552,11 @@ const Admin = () => {
                 </Button>
               </CardContent>
             </Card>
+          </TabsContent>
+
+          {/* Booking Setup Tab */}
+          <TabsContent value="booking">
+            <PicktimeSetup />
           </TabsContent>
         </Tabs>
       </div>
